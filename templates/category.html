@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ kategoriya.title() }} xarajatlari</h1>
+
+    {% if expenses %}
+        <table>
+            <tr><th>Nomi</th><th>Summa</th><th>Sana</th></tr>
+            {% for e in expenses %}
+            <tr>
+                <td>{{ e.nomi }}</td>
+                <td>{{ e.summa }} so'm</td>
+                <td>{{ e.sana.strftime('%d.%m.%Y') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Bu kategoriyada xarajat yo'q.</p>
+    {% endif %}
+    
+    <p><a href="{{ url_for('get_expenses') }}">← Barcha xarajatlar</a></p>
+{% endblock %}

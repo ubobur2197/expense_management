@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>Xarajatlar Hisoblagichi</h1>
+    <p>Ushbu ilova orqali xarajatlarni boshqarishingiz mumkin.</p>
+    <ul>
+        <li><a href="{{ url_for('get_expenses') }}">Barcha xarajatlar</a></li>
+        <li><a href="{{ url_for('add_expense') }}">Yangi xarajat qo'shish</a></li>
+        <li><a href="{{ url_for('total') }}">Umumiy summa</a></li>
+    </ul>
+    <hr>
+    <h3>Kategoriyalar bo'yicha:</h3>
+    <ul>
+        {% for kat in ['oziq-ovqat', 'transport', 'kommunal'] %}
+            <li><a href="{{ url_for('by_category', kategoriya=kat) }}">{{ kat }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Yangi xarajat qo'shish</h1>
+    <form method="POST">
+        <p>
+            <label>Nomi:<br>
+                <input type="text" name="nomi" required style="width:100%; padding:8px;">
+            </label>
+        </p>
+        <p>
+            <label>Summa (so'm):<br>
+                <input type="number" step="0.01" name="summa" required style="width:100%; padding:8px;">
+            </label>
+        </p>
+        <p>
+            <label>Kategoriya:<br>
+                <select name="kategoriya" required style="width:100%; padding:8px;">
+                    {% for kat in kategoriyalar %}
+                        <option value="{{ kat }}">{{ kat }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </p>
+        <p>
+            <button type="submit" style="background:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+                Qo'shish
+            </button>
+        </p>
+    </form>
+{% endblock %}

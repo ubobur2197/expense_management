@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>{{ title|default('Barcha xarajatlar') }}</h1>
+
+    {% if expenses %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nomi</th>
+                <th>Summa</th>
+                <th>Kategoriya</th>
+                <th>Sana</th>
+                <th>Amal</th>
+            </tr>
+            {% for e in expenses %}
+            <tr>
+                <td>{{ e.id }}</td>
+                <td>{{ e.nomi }}</td>
+                <td>{{ e.summa }} so'm</td>
+                <td>{{ e.kategoriya }}</td>
+                <td>{{ e.sana.strftime('%d.%m.%Y') }}</td>
+                <td><a href="{{ url_for('delete_expense', id=e.id) }}" class="btn" onclick="return confirm('O\'chirishni xohlaysizmi?')">O'chirish</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Hech qanday xarajat yo'q.</p>
+    {% endif %}
+{% endblock %}

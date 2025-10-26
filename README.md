@@ -16,16 +16,3 @@ pip install flask flask-sqlalchemy
 python app.py
 ```
 
-Brauzer: http://127.0.0.1:5000
-Imkoniyatlar
-
-/ – bosh sahifa
-/expenses – ro‘yxat
-/expenses/add – qo‘shish
-/expenses/total – jami
-/expenses/category/transport – filtr
-/expenses/month/6 – 6-oy
-
-
-expenses.db avto yaratiladi.
-Kod: app.py 
